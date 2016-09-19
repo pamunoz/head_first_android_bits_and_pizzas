@@ -8,7 +8,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,7 +18,15 @@
         </activity>
         <activity
             android:name=".OrderActivity"
-            android:label="@string/create_order">
+            android:label="@string/create_order"
+            android:parentActivityName=".MainActivity"> <!--Apps at API level 15 or above use this line.
+            It says that OrderActivity's
+            parent is MainActivity-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+            <!-- You only need to add the <meta-data> element if you're supporting
+             apps below API level 16 -->
 
         </activity>
     </application>
